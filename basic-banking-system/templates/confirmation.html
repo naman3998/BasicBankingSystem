@@ -9,7 +9,7 @@
   body{
     background-image:url('https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
   }
 
         .table {
@@ -57,10 +57,73 @@
     <h1 class="text-center" >User Account List</h1>
     <p class="text-center" style= "color:#00001a;font-size:20px;font-weight:bold;"">List of user final details after transfer of money from one user to another user :</p>
     <div class="container my-3 mt-3 userlist">
+                                             
+      <table class="table table-hover table-dark  my-5 mb-5 pb-5">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Name</th>
+                    <th scope="col">Designation</th>
+                      <th scope="col">Age</th>
+                    <th scope="col">Email-Id</th>
+                    <th scope="col">Amount Credited</th>
+                      <th scope="col">Amount Debited</th>
+                    <th scope="col">Final Amount</th>
+
+              </tr>
+          </thead>
+          <tbody>
+            {% for userr in users %}
+            {% ifequal recipient userr.name %}
+
+              <!-- {% for user in users %}
+              <tr>
+                  <td style=font-weight:bold;font-style:italic>{{user.name}}</td>
+                  <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
+                  <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
+              </tr>
+              {% endfor %} -->
+               <tr>
+                <td style=font-weight:bold;font-style:italic>{{userr.name}}</td>
+                  <td style=color:#09ed37;font-weight:bold;font-style:italic>{{"Reciever"}}</td>
+                  <td style=font-weight:bold;font-style:italic>{{userr.age}}</td>
+                <td style=font-weight:bold;font-style:italic>{{userr.email}}</td>
+                <td style=color:#09ed37;font-weight:bold;font-style:italic>{{credit}}</td>
+                <td style=color:#ed0909;font-weight:bold;font-style:italic>{{0}}</td>
+                <td style=font-weight:bold;font-style:italic>{{userr.current_credit}}</td>
+
+
+  </tr>
+  {%endifequal%}
+  {% ifequal name userr.name %}
+
+
+    <tr>
+      <td style=font-weight:bold;font-style:italic>{{userr.name}}</td>
+        <td style=color:#ed0909;font-weight:bold;font-style:italic>{{"Sender"}}</td>
+          <td style=font-weight:bold;font-style:italic>{{userr.age}}</td>
+      <td style=font-weight:bold;font-style:italic>{{userr.email}}</td>
+      <td style=color:#09ed37;font-weight:bold;font-style:italic>{{0}}</td>
+      <td style=color:#ed0909;font-weight:bold;font-style:italic>{{credit}}</td>
+      <td style=;font-weight:bold;font-style:italic>{{userr.current_credit}}</td>
+
+
+  </tr>
+
+
+{%endifequal%}
+  {% endfor %}
+
+          </tbody>
+      </table>
+      <hr>
+          <h1 class="text-center" >User Account List</h1>
+          <p class="text-center" style= "color:#00001a;font-size:20px;font-weight:bold;"">List of user final details after transfer of money from one user to another user :</p>
+
         <table class="table table-hover table-dark  my-5 mb-5 pb-5">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Name</th>
+                      <th scope="col">Age</th>
                     <th scope="col">Email-Id</th>
                     <th scope="col">Final Balance</th>
                 </tr>
@@ -69,12 +132,16 @@
                 {% for user in users %}
                 <tr>
                     <td style=font-weight:bold;font-style:italic>{{user.name}}</td>
+                      <td style=font-weight:bold;font-style:italic>{{user.age}}</td>
                     <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
                     <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
                 </tr>
                 {% endfor %}
+
             </tbody>
         </table>
-    </div>
+
+  </div>
+
 </div>
 {% endblock body %}
