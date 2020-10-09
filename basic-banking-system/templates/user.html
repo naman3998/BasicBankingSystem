@@ -53,6 +53,7 @@ th,td{  border: 4px solid black;
 
 
 {% block body %}
+
 <div class="bb" height: 100%">
     <div class="card-body">
         <h2> Sender Details</h2>
@@ -61,7 +62,8 @@ th,td{  border: 4px solid black;
                   <tr >
 
                       <th  scope="col">Name</th>
-                      <th scope="col">Email-Id</th>
+                      <th scope="col">Age</th>
+                        <th scope="col">Email-Id</th>
                       <th scope="col">Current Balance</th>
 
 
@@ -70,6 +72,7 @@ th,td{  border: 4px solid black;
               <tbody>
                   <tr>
                       <td style=font-weight:bold;font-style:italic>{{user.name}}</td>
+                      <td style=font-weight:bold;font-style:italic>{{user.age}}</td>
                         <td style=font-weight:bold;font-style:italic>{{user.email}}</td>
                       <td style=font-weight:bold;font-style:italic>{{user.current_credit}}</td>
 
@@ -105,12 +108,12 @@ th,td{  border: 4px solid black;
                             <label class="col-sm-3 col-form-label text-right">Amount of Money<span></span>:</label>
                             <input class="col-sm-8" type="number" id="credit" name="credit" required>
                         </div>
-                            <div>
+                        <div>
       <input type="checkbox"  id="myCheck" name="myCheck" onclick="myFunction()" >
       <label for="myCheck"> : Are you sure to continue the transaction</label>
       <p id="text" style="display:none">CONFIRMED!</p>
 
-                     </div>                                                                 
+  </div>
                         <button type="submit" class="btn btn-success">Transfer</button>
                     </form>
                 </div>
